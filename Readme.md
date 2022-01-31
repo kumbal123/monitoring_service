@@ -8,9 +8,12 @@ Java/Kotlin task. The service does not include or work with:
 
 Also there are some issues after editing (PUT) or deleting (DELETE) a 
 MonitoredEndpoint because there are two processes (monitoring urls and responding to http calls) that are working with the same
-collection of data at the same time. Unfortunately I was not able the come up with a good solution. To recreate 
+collection of data at the same time. This is causing 
+weird behaviour where MonitoredEndpoints are creating 
+themselves repeatedly. I was not able the come up with a good solution. To recreate 
 the issue create few MonitoredEndpoints and delete them all or 
-edit them all.
+edit them all. The expected result should be either having 0 MonitoredEndpoints or
+have the same amount of created MonitoredEndpoints before editing them.
 
 ## How to start the service
 Navigate to the projects folder and start the service with the following command:
